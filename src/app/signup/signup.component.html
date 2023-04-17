@@ -1,0 +1,161 @@
+<form [formGroup]="signupForm"  >
+  <section class="h-100 gradient-form" >
+    <div class="  h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black mt-3">
+            <div class="row g-0">
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div class="text-white  p-md-3 mx-md-4">
+                  <h4 class="mb-4">We are more than just a Application</h4>
+                  <p class="small mb-0">Amazing content by user for user ...
+                    Give people the power to build community and bring the world closer togetherWe’re commited to fostering a safe and supportive community for everyone Community 
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="card-body p-md-2 mx-md-4">
+                  <div class="text-center">
+                    <img src="https://static.india.com/wp-content/uploads/2021/11/Instagram-Logo.jpg"
+                      style="width: 185px;" alt="logo">
+                    <h4 class="mt-1 mb-2 pb-1">We are The Insta Team</h4>
+                  </div>
+                  <form>
+                    <p>Please register to your details</p>
+                    <div class="form-outline mb-1">
+                      <div>
+                        <label> 
+                           First Name: 
+                            <input type="text" formControlName="firstName">
+                            <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
+                              <div *ngIf="firstName?.errors?.['required']" style="color: tomato;">
+                                First firstName is required.
+                              </div>
+                              <div *ngIf="firstName?.errors?.['firstName']"style="color: tomato;">
+                                Invalid firstName format.
+                              </div>
+                            </div>
+                          </label></div>
+                    </div>
+                    <div class="form-outline mb-1">
+                      <div>
+                        <label>
+                           Last Name:
+                            <input type="text" formControlName="lastName">
+                            <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
+                              <div *ngIf="lastName?.errors?.['required']" style="color: tomato;">
+                                Last name is required.
+                              </div>
+                              <div *ngIf="lastName?.errors?.['lastName']"style="color: tomato;">
+                                Invalid lastName format.
+                              </div>
+                            </div>
+                          </label></div>
+                    </div>
+                    <div class="form-outline mb-1">
+                      <div>
+                        <label>
+                          Email:
+                          <input type="email" formControlName="email">
+                          <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+                            <div *ngIf="email?.errors?.['required']"style="color: tomato;">
+                              Email is required.
+                            </div>
+                            <div *ngIf="email?.errors?.['email']"style="color: tomato;">
+                              Invalid email format.
+                            </div>
+                          </div>
+                        </label></div>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <div> 
+                        <label>
+                          Password:
+                          <input type="password" formControlName="password">
+                          <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+                            <div *ngIf="password?.errors?.['required']"style="color: tomato;">
+                              Password is required.
+                            </div>
+                            <div *ngIf="password?.errors?.['minlength']" style="color: tomato;">
+                              Password must be at least 6 characters long.
+                            </div>
+                          </div>
+                        </label></div>
+                    </div>
+      <div class="text-center pt-1 mb-5 pb-1">
+        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button" style=" padding-right: 240px;
+        padding-left: 240px;" routerLink="../profile" (click)="user()" [disabled]="signupForm.invalid">
+          Register</button>
+          
+      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- 
+<div class="container "  style="margin-top: 100px;margin-left: 350px;" width="30%">
+    <div class="border" style="width:40% ; height: 600px;">
+<form [formGroup]="signupForm" >
+    <img src="https://static.india.com/wp-content/uploads/2021/11/Instagram-Logo.jpg" width="60%" height="10%">
+    
+    <div>
+    <label> 
+       First Name: 
+        <input type="text" formControlName="firstName">
+        <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
+          <div *ngIf="firstName?.errors?.['required']" style="color: tomato;">
+            First firstName is required.
+          </div>
+          <div *ngIf="firstName?.errors?.['firstName']"style="color: tomato;">
+            Invalid firstName format.
+          </div>
+        </div>
+      </label></div>
+        <div>
+          <label>
+             Last Name:
+              <input type="text" formControlName="lastName">
+              <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
+                <div *ngIf="lastName?.errors?.['required']" style="color: tomato;">
+                  Last name is required.
+                </div>
+                <div *ngIf="lastName?.errors?.['lastName']"style="color: tomato;">
+                  Invalid lastName format.
+                </div>
+              </div>
+            </label></div>
+            <div>
+    <label>
+      Email:
+      <input type="email" formControlName="email">
+      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+        <div *ngIf="email?.errors?.['required']"style="color: tomato;">
+          Email is required.
+        </div>
+        <div *ngIf="email?.errors?.['email']"style="color: tomato;">
+          Invalid email format.
+        </div>
+      </div>
+    </label></div>
+  <div> 
+    <label>
+      Password:
+      <input type="password" formControlName="password">
+      <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+        <div *ngIf="password?.errors?.['required']"style="color: tomato;">
+          Password is required.
+        </div>
+        <div *ngIf="password?.errors?.['minlength']" style="color: tomato;">
+          Password must be at least 6 characters long.
+        </div>
+      </div>
+    </label></div>
+    <button class="btn btn-primary" type="button"  routerLink="../profile" (click)="user()" [disabled]="signupForm.invalid">Sign Up</button>
+
+  </form>
+</div> -->

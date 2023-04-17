@@ -1,0 +1,80 @@
+
+<div class="container "  style="margin-top: 10px;margin-left: 410px;" width="30%">
+    <div class="border" style="width:40% ; height: 720px;">
+<form [formGroup]="postform" >
+    <img src="https://static.india.com/wp-content/uploads/2021/11/Instagram-Logo.jpg" width="60%" height="5%">
+    
+    <div>
+    <label>
+       Caption : 
+        <input type="text" formControlName="text">
+        <div *ngIf="text?.invalid && (text?.dirty || text?.touched)">
+            <div *ngIf="text?.errors?.['required']" style="color: tomato;">
+              Caption is required.
+            </div>
+            <div *ngIf="text?.errors?.['text']"style="color: tomato;">
+              Invalid text format.
+            </div>
+          </div>
+      </label>
+    </div>
+        <div>
+          <label>
+             Image:
+              <input type="text" formControlName="image">
+              <div *ngIf="image?.invalid && (image?.dirty || image?.touched)">
+                <div *ngIf="image?.errors?.['required']" style="color: tomato;">
+                  Image is required.
+                </div>
+                <div *ngIf="image?.errors?.['image']"style="color: tomato;">
+                  Invalid image format.
+                </div>
+              </div>
+            </label>
+        </div>
+<div>
+    <label>
+      Likes:
+      <input type="number" formControlName="likes">
+      <div *ngIf="likes?.invalid && (likes?.dirty || likes?.touched)">
+        <div *ngIf="likes?.errors?.['required']" style="color: tomato;">
+          likes is required.
+        </div>
+        <div *ngIf="likes?.errors?.['likes']"style="color: tomato;">
+          Invalid likes format.
+        </div>
+      </div>
+    </label>
+</div>
+  <div> 
+    <label>
+      Tags:
+      <input type="text" formControlName="tags">
+      <div *ngIf="tags?.invalid && (tags?.dirty || tags?.touched)">
+        <div *ngIf="tags?.errors?.['required']" style="color: tomato;">
+          tags is required.
+        </div>
+        <div *ngIf="tags?.errors?.['tags']"style="color: tomato;">
+          Invalid tags format.
+        </div>
+      </div>
+    </label>
+</div>
+<div> 
+    <label>
+      Owner:
+      <input type="text" formControlName="owner" onchange="" >
+      <div *ngIf="owner?.invalid && (owner?.dirty || owner?.touched)">
+        <div *ngIf="owner?.errors?.['required']" style="color: tomato;">
+          Owner is required.
+        </div>
+        <div *ngIf="owner?.errors?.['owner']"style="color: tomato;">
+          Invalid owner format.
+        </div>
+      </div>
+    </label>
+</div>
+    <button class="btn btn-primary" type="button"   (click)=" create()">Post</button>
+
+  </form>
+</div>
